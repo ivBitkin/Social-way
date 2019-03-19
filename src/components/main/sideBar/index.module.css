@@ -1,0 +1,7 @@
+.sideBar{
+  background: grey;
+  width: 100%;
+  display: grid;
+  padding-top: 8px;
+  grid-row-gap: 8px;
+}
