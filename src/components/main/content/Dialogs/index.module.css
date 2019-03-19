@@ -1,0 +1,13 @@
+.gridDialogs{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.users{
+  display: grid;
+  justify-items: center;
+  background: slategray;
+}
+.dialogs{
+  display: grid;
+  justify-items: center;
+}

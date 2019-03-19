@@ -1,7 +1,26 @@
 .sideBar{
-  background: grey;
   width: 100%;
   display: grid;
-  padding-top: 8px;
-  grid-row-gap: 8px;
+}
+.nav{
+  height: 56px;
+  background: rgb(40, 51, 51);
+  text-align: center;
+  line-height: 56px;
+}
+.nav:hover{
+  background: rgb(60, 85, 76);
+  cursor: pointer;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
+  
+}
+.ActiveLink{
+  color: aqua;
+  height: 56px;
+  background: rgb(60, 85, 76);
+
 }
