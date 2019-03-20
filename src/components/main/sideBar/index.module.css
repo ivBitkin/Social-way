@@ -1,10 +1,11 @@
 .sideBar{
   width: 100%;
-  display: grid;
+  background: rgb(40, 51, 51);
 }
 .nav{
+  margin-bottom: 4px;
   height: 56px;
-  background: rgb(40, 51, 51);
+  background: rgb(11, 49, 51);
   text-align: center;
   line-height: 56px;
 }

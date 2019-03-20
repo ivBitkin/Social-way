@@ -1,37 +1,58 @@
 import React, { Fragment } from 'react';
-import Post from './Posts';
-import classes from './index.module.css';
+import Post                from './Posts';
+import classes             from './index.module.css';
+import { NavLink }         from 'react-router-dom';
 
+const DialogItem = (props) => {
+		let path = '/messages/' + props.id;
+		return (<NavLink className={classes.aLink} activeClassName={classes.aActive} exact to={path}>
+				<div className={classes.userItem}>{props.name}</div>
+		</NavLink>);
+};
 
 const Dialogs = () => {
-  return (
-    <Fragment>
 
-      <div className={classes.gridDialogs}>
-        <div className={classes.users}>
-          <h1>Users</h1>
-          <div>User 1</div>
-          <div>User 2</div>
-          <div>User 3</div>
-          <div>User 4</div>
-          <div>User 5</div>
-          <div>User 6</div>
-          <div>User 7</div>
-        </div>
-        <div className={classes.dialogs}>
-          <h1>Dialogs</h1>
-          <Post message={"Some Text Some Text 1"} />
-          <Post message={"Some Text Some Text 2"} />
-          <Post message={"Some Text Some Text 3"} />
-          <Post message={"Some Text Some Text 4"} />
-          <Post message={"Some Text Some Text 5"} />
-          <Post message={"Some Text Some Text 6"} />
-          <Post message={"Some Text Some Text 7"} />
-          <Post message={"Some Text Some Text 8"} />
-        </div>
-      </div>
-    </Fragment>
-  )
-}
+		let userData = [
+				{ id: 1, name: 'Ivan' },
+				{ id: 2, name: 'Bogdan' },
+				{ id: 3, name: 'Ivan' },
+				{ id: 4, name: 'Artur' },
+				{ id: 5, name: 'Vlad' },
+				{ id: 6, name: 'Diana' },
+				{ id: 7, name: 'Anime' }
+		];
+		let usersElements = userData.map(user => {
+				return(<DialogItem name={user.name} id={user.id}/>)
+		});
+
+		let messagesData = [
+				{  message: 'Some Text Some Text Ivan' },
+				{  message: 'Some Text Some Text Bogdan' },
+				{  message: 'Some Text Some Text Ivan' },
+				{  message: 'Some Text Some Text Artur' },
+				{  message: 'Some Text Some Text Vlad' },
+				{  message: 'Some Text Some Text Diana' },
+				{  message: 'Some Text Some Text Anime' }
+		];
+		let dialogsElements = messagesData.map(dialog => {
+				return(<Post message={dialog.message} />)
+		});
+
+		return (
+				<Fragment>
+
+						<div className={classes.gridDialogs}>
+								<div className={classes.users}>
+										<h1>Users</h1>
+										{usersElements}
+								</div>
+								<div className={classes.dialogs}>
+										<h1>Dialogs</h1>
+										{dialogsElements}
+								</div>
+						</div>
+				</Fragment>
+		);
+};
 
 export default Dialogs;

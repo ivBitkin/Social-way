@@ -2,6 +2,19 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
+.aLink{
+  color: #000;
+  width: 100%;
+}
+.aActive{
+  color: aqua;
+}
+.userItem{
+  height: 56px;
+  background: #799bcc;
+  text-align: center;
+  line-height: 56px;
+}
 .users{
   display: grid;
   justify-items: center;
