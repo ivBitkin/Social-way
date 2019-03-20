@@ -1,0 +1,17 @@
+.aLink{
+    color: #000;
+    width: 96%;
+    background: #5173cc;
+    margin-bottom: 2px;
+}
+.aActive{
+    color: aqua;
+    width: 100%;
+    background:  #6d8dcc;
+    transition: all .7s;
+}
+.userItem{
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+}

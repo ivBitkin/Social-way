@@ -25,3 +25,9 @@ a {
   background: rgb(60, 85, 76);
 
 }
+
+.gridFriends{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}

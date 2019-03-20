@@ -5,19 +5,24 @@ import './App.css';
 import Header                   from './components/header';
 import Footer                   from './components/footer';
 import Profile                  from './components/main/content/Profile';
-import Dialogs                  from './components/main/content/Dialogs';
+import Dialogs                  from './components/main/content/Messages';
 import SideBar                  from './components/main/sideBar';
+import { state }                from './redux/state';
 
 class App extends Component {
+
 		render() {
+				let { users, messages, feed } = state;
 				return (
 						<BrowserRouter>
 								<div className="App">
-										<Header name={'Ivan'}/>
+										<Header name={'Social Name'}/>
 										<div className="Main">
 												<SideBar/>
-												<Route path="/profile" component={Profile}/>
-												<Route path="/messages" component={Dialogs}/>
+												<Route path="/profile" render={() => <Profile feedPost={feed}/>}/>
+												<Route path="/messages"
+															 render={() => <Dialogs userDataState={users}
+																											messagesDataState={messages}/>}/>
 										</div>
 										<Footer/>
 								</div>

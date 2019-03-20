@@ -6,6 +6,6 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .Main {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 6fr;
     height: auto;
 }
