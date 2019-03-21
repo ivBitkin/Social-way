@@ -7,7 +7,9 @@ import Footer                   from './components/footer';
 import Profile                  from './components/main/content/Profile';
 import Dialogs                  from './components/main/content/Messages';
 import SideBar                  from './components/main/sideBar';
-import { state }                from './redux/state';
+import { addPost }              from './redux/state';
+import state                    from './redux/state';
+
 
 class App extends Component {
 
@@ -19,7 +21,7 @@ class App extends Component {
 										<Header name={'Social Name'}/>
 										<div className="Main">
 												<SideBar/>
-												<Route path="/profile" render={() => <Profile feedPost={feed}/>}/>
+												<Route path="/profile" render={() => <Profile profilePage={feed} addpost={addPost}/>}/>
 												<Route path="/messages"
 															 render={() => <Dialogs userDataState={users}
 																											messagesDataState={messages}/>}/>

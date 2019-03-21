@@ -12,3 +12,24 @@
   display: grid;
   justify-items: center;
 }
+.EnterMessage{
+  display: grid;
+  justify-items: center;
+  width: 80%;
+
+}
+.input{
+  height: 40px;
+  padding: 0;
+  width: 80%;
+  padding-left: 4px;
+
+}
+.Enterbtn{
+  height: 44px;
+  width: 120px;
+  background: blueviolet;
+  color: aqua;
+  font-size: 14px;
+  cursor: pointer;
+}

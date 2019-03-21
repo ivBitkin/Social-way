@@ -8,7 +8,7 @@ const Profile = (props) => {
 				<Fragment>
 						<div className={classes.Block}>
 								<ProfileInfo/>
-								<Feed message={props.feedPost}/>
+								<Feed profilePage={props.profilePage} addPost={props.addpost}/>
 						</div>
 				</Fragment>
 		);
