@@ -1,5 +1,8 @@
-import React, { Fragment } from 'react';
-import classes             from './index.module.css';
+import React, { Fragment }                                      from 'react';
+import classes                                                  from './index.module.css';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/state';
+
+
 
 const Feed = (props) => {
 
@@ -11,12 +14,12 @@ const Feed = (props) => {
 		let newPostElement = React.createRef();
 
 		let addPost = () => {
-				props.dispatch({ type: 'ADD-POST' });
+				props.dispatch(addPostActionCreator());
 		};
 
 		let onPostChange = () => {
 				let text   = newPostElement.current.value;
-				let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text };
+				let action = updateNewPostTextActionCreator(text);
 				props.dispatch(action);
 		};
 		return (
