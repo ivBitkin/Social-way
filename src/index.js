@@ -6,8 +6,9 @@ import App                from './App';
 import store              from './redux/state';
 
 let rerenderMain = (state) => {
-		ReactDOM.render(<App state={store.getState()} addPost={store.addPost.bind(store)}
-												 updateNewPostText={store.updateNewPostText.bind(store)}/>, document.getElementById('root'));
+		ReactDOM.render(<App state={store.getState()}
+												 dispatch={store.dispatch.bind(store)}/>,
+				document.getElementById('root'));
 };
 rerenderMain(store.getState());
 store.subscribe(rerenderMain);

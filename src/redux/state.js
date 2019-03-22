@@ -21,28 +21,32 @@ let store = {
 				messages   : messagesData
 				// feed    : feedData,
 		},
-		getState() {
-				return this._state;
-		},
 		_callSubscriber() {
 				console.log('state was changed');
 		},
-		addPost() {
-				let newpost = {
-						id     : 25,
-						message: this._state.profilePage.newPostText
-				};
-				this._state.profilePage.posts.push(newpost);
-				this._state.newPostText = '';
-				this._callSubscriber(this._state);
-		},
-		updateNewPostText(newText) {
-				this._state.profilePage.newPostText = newText;
-				this._callSubscriber(this._state);
+
+		getState() {
+				return this._state;
 		},
 		subscribe(observer) {
 				this._callSubscriber = observer;
 
+		},
+
+
+		dispatch(action) {
+				if (action.type === 'ADD-POST'){
+						let newpost = {
+								id     : 25,
+								message: this._state.profilePage.newPostText
+						};
+						this._state.profilePage.posts.push(newpost);
+						this._state.newPostText = '';
+						this._callSubscriber(this._state);
+				}else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+						this._state.profilePage.newPostText = action.newText;
+						this._callSubscriber(this._state);
+				}
 		}
 };
 

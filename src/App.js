@@ -17,8 +17,7 @@ const App = (props) => {
 								<div className="Main">
 										<SideBar/>
 										<Route path="/profile"
-													 render={() => <Profile posts={props.state.profilePage} addPost={props.addPost}
-																									updateNewPostText={props.updateNewPostText}/>}/>
+													 render={() => <Profile posts={props.state.profilePage} dispatch={props.dispatch} />}/>
 										{/*<Route path="/messages"*/}
 										{/*render={() => <Dialogs userDataState={"users"}*/}
 										{/*messagesDataState={"messages"}/>}/>*/}
