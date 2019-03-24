@@ -1,8 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import {navigationReducer} from "./navigationReducer";
 
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const SEND_MESSAGE = "SEND-MESSAGE";
+
 
 let store = {
     _state: {
@@ -39,7 +39,10 @@ let store = {
                 {message: 'Some Text Some Text Anime'}
             ],
             newMessageText: ''
-        }
+        },
+        navigation: {
+
+        },
     },
     _callSubscriber() {
         console.log('state was changed');
@@ -54,55 +57,20 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newpost = {
-                id: 25,
-                message: this._state.profilePage.newPostText
-            };
-            this._state.profilePage.posts.push(newpost);
-            this._state.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.body;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let newMessageText = this._state.dialogsPage.newMessageText;
-            this._state.dialogsPage.newMessageText = '';
-            this._state.dialogsPage.messages.push({message: newMessageText});
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.navigation = navigationReducer(this._state.navigation, action);
+
+        this._callSubscriber(this._state);
+
+
     }
 
 };
 
-export const addPostActionCreator = () => {
 
-    return {
-        type: ADD_POST
-    };
-};
-export const updateNewPostTextActionCreator = (text) => {
 
-    return {
-        type: UPDATE_NEW_POST_TEXT, newText: text
-    };
-};
-
-export const sendMessageCreator = () => {
-
-    return {
-        type: SEND_MESSAGE
-    };
-};
-export const updateNewTextMessageCreator = (body) => {
-
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT, body: body
-    };
-};
 
 export default store;
 window.store = store;

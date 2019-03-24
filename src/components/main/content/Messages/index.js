@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import Post from './Posts';
 import classes from './index.module.css';
 import {Users} from './Users/Users';
-import {sendMessageCreator, updateNewTextMessageCreator} from "../../../../redux/state";
+import {sendMessageCreator, updateNewTextMessageCreator} from "../../../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
     console.log(props)
@@ -18,7 +18,7 @@ const Dialogs = (props) => {
     });
 
 
-    let newPostElement = React.createRef();
+    // let newPostElement = React.createRef();
 
 
     let addSendMessage = () => {

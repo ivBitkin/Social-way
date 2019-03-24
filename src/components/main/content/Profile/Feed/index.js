@@ -1,6 +1,6 @@
 import React, { Fragment }                                      from 'react';
 import classes                                                  from './index.module.css';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/state';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/profileReducer';
 
 
 
