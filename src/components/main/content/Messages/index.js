@@ -8,7 +8,7 @@ const Dialogs = (props) => {
     console.log(props)
     let state = props.store.getState().dialogsPage;
     let {userDataState, messagesDataState} = props;
-    let newMessageText = props.store._state.dialogsPage.newMessageText;
+    let newMessageText = props.newMessageText;
     let usersElements = userDataState.map((user, id) => {
         return (<Users key={id} name={user.name} id={user.id}/>);
     });

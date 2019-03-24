@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store from './redux/state';
+import store from './redux/reduxStore';
 
 let rerenderMain = (state) => {
     ReactDOM.render(<App state={store.getState()}
@@ -12,5 +12,8 @@ let rerenderMain = (state) => {
         document.getElementById('root'));
 };
 rerenderMain(store.getState());
-store.subscribe(rerenderMain);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderMain(state);
+});
 serviceWorker.unregister();
